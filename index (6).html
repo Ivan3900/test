@@ -21,96 +21,7 @@
             padding: 0;
         }
 
-        /* Header styles */
-        .header {
-            background-color: #D71921;
-            padding: 0;
-            border-bottom: none;
-            width: 100%;
-        }
 
-        .header-container {
-            max-width: none;
-            width: 100%;
-            margin: 0;
-            padding: 8px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 40px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .wells-fargo-logo {
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-decoration: none;
-        }
-
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 400;
-            cursor: pointer;
-            text-decoration: none;
-            padding: 4px 8px;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .nav-item:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .search-container {
-            position: relative;
-            margin-left: 16px;
-        }
-
-        .search-input {
-            padding: 6px 35px 6px 12px;
-            border: 1px solid #ffffff;
-            border-radius: 4px;
-            font-size: 13px;
-            width: 160px;
-            background-color: #ffffff;
-            color: #333333;
-        }
-
-        .search-button {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
-            background-size: contain;
-        }
 
         /* Main content styles */
         .main-content {
@@ -586,48 +497,11 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .header-container {
-                flex-direction: column;
-                height: auto;
-                gap: 10px;
-            }
 
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-            }
-
-            .search-container {
-                margin-left: 0;
-                width: 100%;
-                max-width: 200px;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo-container">
-                <a href="#" class="wells-fargo-logo">WELLS FARGO</a>
-            </div>
-            <nav class="header-nav">
-                <div class="nav-links">
-                    <a href="#" class="nav-item enroll">Enroll</a>
-                    <a href="#" class="nav-item">Customer Service</a>
-                    <a href="#" class="nav-item">ATM/Locations</a>
-                    <a href="#" class="nav-item">Español</a>
-                </div>
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Search">
-                    <button class="search-button" type="button"></button>
-                </div>
-            </nav>
-        </div>
-    </header>
+
 
     <!-- Main content -->
     <main class="main-content">
